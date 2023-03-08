@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="assets/css/styles.css" rel="stylesheet" />
-		<title>
-			Tailwind CSS Boilerplate (PostCSS + Browsersync + Gulp 4 + Imagemin)
-		</title>
-	</head>
-	<body>
-		<div class="container mx-auto py-12">
-			<h1 class="text-4xl font-bold text-gray-900">
-				Tailwind CSS Boilerplate (PostCSS + Browsersync + Gulp 4 +
-				Imagemin)
-			</h1>
-			<p class="text-lg mt-4">
-				Tailwind CSS boilerplate for HTML projects. Bare-bones HTML
-				template with Tailwind CSS, PostCSS, Gulp, Imagemin &amp;
-				Browsersync.
-			</p>
-		</div>
-	</body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <title>
+        Fetch
+    </title>
+</head>
+
+<body>
+    <div class="container mx-auto py-12">
+        <h1 class="text-4xl font-bold text-gray-900">
+            Fetch Live Results
+        </h1>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        fetch('https://liveresults.co.nz/api/public/10/results/7e4439a4-6c67-40d0-b99f-d0940bb1c866?date=2018-01-15&timestamp=123456')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(race => {
+                    const markup = '<li>$(race_no}</li>';
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                })
+            })
+    </script>
+</body>
+
 </html>
